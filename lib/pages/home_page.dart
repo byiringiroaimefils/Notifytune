@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final TextEditingController _searchcontroller = TextEditingController();
 
-  int _currentIndex = 0; // Track the current active index
+  int _currentIndex = 0; 
+  String _selectedContent = "Rooms";
 
   void _onTabTapped(int index) {
     setState(() {
@@ -43,6 +44,82 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _updateContent(String content) {
+    setState(() {
+      _selectedContent = content;
+    });
+  }
+
+  Widget _buildRoomsContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Active/Live Rooms",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 10),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 2, 
+            itemBuilder: (context, index) {
+              return Card(
+                margin: EdgeInsets.symmetric(vertical: 8),
+                child: ListTile(
+                  leading: Icon(Icons.meeting_room, color: Colors.teal),
+                  title: Text("Room ${index + 1}"),
+                  subtitle: Text("Active Participants: ${10 + index}"),
+                  trailing: Icon(Icons.arrow_forward),
+                  onTap: () {
+                    // Handle room card click
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPeopleContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "People",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 10),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 2, 
+            itemBuilder: (context, index) {
+              return Card(
+                margin: EdgeInsets.symmetric(vertical: 8),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Text(
+                      "P${index + 1}",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  title: Text("Person ${index + 1}"),
+                  subtitle: Text("Status: Online"),
+                  trailing: Icon(Icons.chat),
+                  onTap: () {
+                    // Handle person card click
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +141,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20), // Add spacing for better layout
+            SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -72,20 +149,20 @@ class _HomePageState extends State<HomePage> {
                     controller: _searchcontroller,
                     decoration: InputDecoration(
                       filled: true, // Enable background color
-                      fillColor: Colors.grey[200], // Light grey background
+                      fillColor: Colors.grey[200], 
                       hintText: "Search...",
                       hintStyle: TextStyle(
-                          color: Colors.grey[600]), // Greyish hint text
+                          color: Colors.grey[600]),
                       prefixIcon: Icon(
                         Icons.search,
-                        color: Colors.grey[600], // Icon inside input
+                        color: Colors.grey[600],
                       ),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 15), // Adjust height
+                          EdgeInsets.symmetric(vertical: 15),
                       border: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(12), // Rounded corners
-                        borderSide: BorderSide.none, // Remove border lines
+                            BorderRadius.circular(12),
+                        borderSide: BorderSide.none, 
                       ),
                     ),
                   ),
@@ -96,19 +173,22 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                MyButton(onPressed: () {}, text: "Rooms"),
-                MyButton(onPressed: () {}, text: "People"),
+                MyButton(
+                  onPressed: () => _updateContent("Rooms"),
+                  text: "Rooms",
+                ),
+                MyButton(
+                  onPressed: () => _updateContent("People"),
+                  text: "People",
+                ),
               ],
             ),
             SizedBox(height: 20),
-            Text(
-              "Trending Tags",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            Expanded(
+              child: _selectedContent == "Rooms"
+                  ? _buildRoomsContent()
+                  : _buildPeopleContent(),
             ),
-            // TODO: Add Grid view of the trending tags......
           ],
         ),
       ),

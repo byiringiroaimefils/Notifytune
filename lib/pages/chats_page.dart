@@ -41,6 +41,43 @@ class _ChatsPageState extends State<ChatsPage> {
     }
   }
 
+  // Widget _buildPersonalContent() {
+  //   return Column(
+  //     children: [
+  //       Text(
+  //         "Personal",
+  //         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  //       ),
+  //       SizedBox(height: 10),
+  //       Expanded(
+  //         child: ListView.builder(
+  //           itemCount: 2, 
+  //           itemBuilder: (context, index) {
+  //             return Card(
+  //               margin: EdgeInsets.symmetric(vertical: 8),
+  //               child: ListTile(
+  //                 leading: CircleAvatar(
+  //                   backgroundColor: Colors.teal,
+  //                   child: Text(
+  //                     "P${index + 1}",
+  //                     style: TextStyle(color: Colors.white),
+  //                   ),
+  //                 ),
+  //                 title: Text("Person ${index + 1}"),
+  //                 subtitle: Text("Status: Online"),
+  //                 trailing: Icon(Icons.chat),
+  //                 onTap: () {
+  //                   // Handle person card click
+  //                 },
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,10 +148,12 @@ class _ChatsPageState extends State<ChatsPage> {
                   MyButton(onPressed: () {}, text: "Personal"),
                   MyButton(onPressed: () {}, text: "Groups"),
                   MyButton(onPressed: () {}, text: "Favorites"),
-                ].map((button) => Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: button,
-                    )).toList(),
+                ]
+                    .map((button) => Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: button,
+                        ))
+                    .toList(),
               ),
             ),
             SizedBox(height: 20),
