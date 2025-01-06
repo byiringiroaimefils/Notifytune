@@ -14,6 +14,11 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0; 
   String _selectedContent = "Rooms";
 
+  final List<String> trendingTags = [
+    "#Music", "#Tech", "#Sports", "#Cooking", "#Fashion", "#Movies",
+    "#Health", "#Food", "#Gaming", "#Art",
+  ];
+
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -183,7 +188,45 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 5),
+            Text(
+              "Trending Tags",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 5),
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                  childAspectRatio: 2,
+                ),
+                itemCount: trendingTags.length,
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 0),
+                itemBuilder: (context, index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF3A82FF),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Text(
+                      trendingTags[index],
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            // SizedBox(height: 10),
             Expanded(
               child: _selectedContent == "Rooms"
                   ? _buildRoomsContent()
