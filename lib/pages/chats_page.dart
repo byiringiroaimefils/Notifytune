@@ -11,36 +11,6 @@ class ChatsPage extends StatefulWidget {
 
 class _ChatsPageState extends State<ChatsPage> {
   final TextEditingController _chatsearchcontroller = TextEditingController();
-  int _currentIndex = 1; // Default active tab is Chats
-
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-
-    String route;
-    switch (index) {
-      case 0:
-        route = "/homepage";
-        break;
-      case 1:
-        route = "/chats";
-        break;
-      case 2:
-        route = "/notifications";
-        break;
-      case 3:
-        route = "/profile";
-        break;
-      default:
-        return;
-    }
-
-    if (ModalRoute.of(context)?.settings.name != route) {
-      Navigator.pushNamed(context, route);
-    }
-  }
-
   // Widget _buildPersonalContent() {
   //   return Column(
   //     children: [
@@ -179,33 +149,6 @@ class _ChatsPageState extends State<ChatsPage> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-        selectedItemColor: Colors.teal[900],
-        unselectedItemColor: Colors.grey[600],
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: "Messages",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notifications",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        elevation: 10,
       ),
     );
   }
