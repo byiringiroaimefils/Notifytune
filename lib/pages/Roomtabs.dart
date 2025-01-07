@@ -65,7 +65,7 @@ class Roomtabs extends StatelessWidget {
   // Method to build the room card
   Widget _buildRoomCard(Roommodel room) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),

@@ -113,7 +113,7 @@ class People extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Text("Invite"),
+                  child: Text("Invite",style: TextStyle(color: Colors.white),),
                 ),
                 Row(
                   children: [
