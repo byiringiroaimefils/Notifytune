@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:notifytuneplus/pages/Forms/login_page.dart';
 import 'package:notifytuneplus/pages/chats_page.dart';
 import 'package:notifytuneplus/pages/home_page.dart';
 import 'package:notifytuneplus/pages/intro_page.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/intropage",
       home: IntroPage(),
       routes: {
+        "/signIn": (context) => LoginPage(),
         "/homepage": (context) => HomePage(),
         "/chats": (context) => ChatsPage(),
         "/notifications": (context) => NotificationsPage(),

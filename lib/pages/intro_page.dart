@@ -19,13 +19,13 @@ class IntroPage extends StatelessWidget {
                   height: 80,
                   width: 80,
                   decoration: BoxDecoration(
-                    color: Colors.teal.withOpacity(0.1),
+                    color: Color(0xFF1D094D).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(40),
                   ),
                   child: Icon(
                     Icons.chat_bubble_outline,
                     size: 40,
-                    color: Colors.teal,
+                    color: Color(0xFF1D094D),
                   ),
                 ),
                 SizedBox(height: 30),
@@ -35,7 +35,7 @@ class IntroPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.teal[900],
+                    color: Color(0xFF1D094D),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -55,12 +55,12 @@ class IntroPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, "/homepage");
+                Navigator.pushNamed(context, "/signIn");
               },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.teal,
+                  color: Color(0xFF1D094D),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
