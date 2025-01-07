@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-   int currentindex = 0;
+  int currentindex = 0;
 
   final List<Widget> screens = [
     const HomeContent(),
@@ -22,10 +22,10 @@ class _HomeState extends State<Home> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
+        appBar: AppBar(
           title: const Text(
             "NotifyTune+",
             style: TextStyle(
@@ -37,21 +37,27 @@ class _HomeState extends State<Home> {
         ),
         body: screens[currentindex],
         bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: false,
+          showSelectedLabels: true,
           currentIndex: currentindex,
           onTap: (index) {
             setState(() {
               currentindex = index;
             });
           },
-          selectedItemColor: Colors.blue, // Color for selected icon and label
-          unselectedItemColor: Colors.grey, // Color for unselected icon and label
+          selectedItemColor: Color.fromARGB(
+              255, 1, 1, 53), // Color for selected icon and label
+          unselectedItemColor:
+              Colors.grey, // Color for unselected icon and label
           selectedLabelStyle: const TextStyle(
-            color: Colors.blue, // Explicitly set selected label color
+            color: Color.fromARGB(
+                255, 33, 243, 37), // Explicitly set selected label color
             fontWeight: FontWeight.bold, // Style for selected labels
           ),
           unselectedLabelStyle: const TextStyle(
-            color: Colors.grey, // Explicitly set unselected label color
-            fontWeight: FontWeight.normal, // Style for unselected labels
+            color: Colors.black54, 
+            fontSize: 14,// Use a darker color for better visibility
+            fontWeight: FontWeight.normal,
           ),
           items: const [
             BottomNavigationBarItem(
