@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "NotifyTune+",
+            "NotifyTune + ",
             style: TextStyle(
               color: Color.fromARGB(255, 1, 1, 53),
               fontWeight: FontWeight.bold,

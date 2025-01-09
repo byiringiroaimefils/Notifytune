@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 // Title OR Header
                 Text(
-                  "Hello,Welcome to Notify Tune Plus",
+                  "Hello,Welcome to NotifyTune Plus",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
@@ -93,7 +93,12 @@ class _LoginPageState extends State<LoginPage> {
                   width: 350,
                   height: 40,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                        // validating the form
+                      if (_formKey.currentState!.validate()) {
+                        // Process data.
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1D094D),
                       foregroundColor: Colors.white,

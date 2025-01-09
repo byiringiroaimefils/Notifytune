@@ -30,7 +30,7 @@ class IntroPage extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  "Welcome to Notify Tune Plus",
+                  "Welcome to NotifyTune Plus",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,
