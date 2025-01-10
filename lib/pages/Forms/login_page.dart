@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 // Title OR Header
                 Text(
-                  "Hello,Welcome to NotifyTune Plus",
+                  "Hello,Welcome to NotifyTune  Plus",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
