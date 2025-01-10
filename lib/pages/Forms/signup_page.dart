@@ -32,7 +32,7 @@ class _SignupPageState extends State<SignupPage> {
             children: [
               // Title or Header
               Text(
-                "Create Account to NotifyTune Plus",
+                "Create Account to NotifyTune  Plus",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
